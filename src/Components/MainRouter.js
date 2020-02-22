@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Header from './Header'
 import Courses from './Courses'
+import CourseDetail from './CourseDetail'
 
 const URL_SERVER = 'http://localhost:8001'
 class MainRouter extends Component {
@@ -12,17 +13,14 @@ class MainRouter extends Component {
         this.state = {}
     }
     loadData () {
-        console.log("loaded0")
         axios.get(URL_SERVER + '/data').then(res => {
             this.setState({courses: [...res.data]})
-            console.log("loaded")
         })
     }
     componentDidMount() {
         this.loadData();
     }
     render() {
-        console.log(this.state)
         return (
             <BrowserRouter>
                 <div className='container'>
@@ -30,6 +28,26 @@ class MainRouter extends Component {
                         <Header/>
                         <Switch>
                             <Route exact path='/' render={() => (<Courses courses={this.state.courses}/>)}/>
+                            <Route exact path="/courses/:courseId" render={ (props) => {
+                                        let idPost = props.location.pathname.replace('/courses/', '');
+                                        const courses = this.state.courses;
+                                        if(!courses) return null;
+                                        const targetCourse = courses.filter(course => (
+                                             course.id == idPost
+                                        ))
+                                        if(targetCourse.length == 0) {
+                                            return (
+                                                <h3 className='text-center'>This course does not exist</h3>
+                                            )
+                                        }
+                                        return(
+                                             <CourseDetail
+                                                  course={targetCourse[0]}
+                                             />
+                                        )
+                                   } }
+                                   />
+
                         </Switch>
                     </div>
                 </div>

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import SingleCourse from './SingleCourse'
 class Courses extends Component {
     getCourses() {
-        console.log(this)
         const {courses} = this.props
         if (!courses || courses.length == 0)
             return null;
