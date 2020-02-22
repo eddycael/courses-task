@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import axios from 'axios';
+
+import Header from './Header'
+
 const URL_SERVER = 'http://localhost:8001'
 class MainRouter extends Component {
     constructor(props) {
@@ -20,7 +23,7 @@ class MainRouter extends Component {
             <BrowserRouter>
                 <div className='container'>
                     <div className='row justify-content-center'>
-                    Title for Eddy's App
+                        <Header/>
                     </div>
                 </div>
             </BrowserRouter>
