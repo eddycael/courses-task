@@ -3,10 +3,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
-### `Run node backend`
+### `node appServer.js`
 
-Install the dependencies: `express` and  `cors`
-Go to backend/appServer.js and run: `node app.js`
+First install the dependencies: `express` and  `cors`
+Go to backend/ and run: `node appServer.js`
 Yo can test it using curl or postman.
 
 The url valids are:
