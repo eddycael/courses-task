@@ -20,6 +20,7 @@ class Courses extends Component {
                             <th scope='col'>Course Name</th>
                             <th scope='col'>Description</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>

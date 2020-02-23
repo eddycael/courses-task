@@ -12,6 +12,9 @@ class SingleCourse extends Component {
                 <td>
                     <Link to={'courses/' + course['id']} className='btn btn-primary'>View TextBooks</Link>
                 </td>
+                <td>
+                    <Link to={'courseEdit/' + course['id']} className='btn btn-warning'>Edit Course</Link>
+                </td>
             </tr>
         )
     }
